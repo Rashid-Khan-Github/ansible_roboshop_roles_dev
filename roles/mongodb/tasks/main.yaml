@@ -6,7 +6,7 @@
 - name: Copy catalogue.js to /tmp
   copy:
     src: catalogue.js
-    dest: /tmp
+    dest: /tmp/catalogue.js
 
 - name: Install MongoDB
   yum:
