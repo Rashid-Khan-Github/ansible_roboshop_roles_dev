@@ -30,13 +30,20 @@
     path: /app
     state: directory
 
+# - name: Download {{component}} Artifacts
+#   get_url:
+#     url:  https://roboshop-builds.s3.amazonaws.com/{{component}}.zip
+#     dest: /tmp
+
 - name: Download {{component}} Artifacts
   get_url:
-    url:  https://roboshop-builds.s3.amazonaws.com/{{component}}.zip
-    dest: /tmp
+    url:  "{{nexus_url}}/{{component}}/{{group_id}}/{{component}}/{{app_version}}/{{component}}-{{app_version}}.zip"
+    dest: /tmp/{{component}}-{{app_version}}.zip
+    username: "{{nexus_username}}"
+    password: "{{nexus_password}}"
 
-- name: Unzipping the Artifacts
+- name: Downloading and Unzipping the Artifacts
   unarchive:
-    src: /tmp/{{component}}.zip
+    src: /tmp/{{component}}-{{app_version}}.zip
     dest: /app
     remote_src: yes
