@@ -44,6 +44,6 @@
 
 - name: Downloading and Unzipping the Artifacts
   unarchive:
-    src: /tmp/{{component}}-{{app_version}}.zip
+    src: "/tmp/{{component}}-{{app_version}}.zip"
     dest: /app
     remote_src: yes
