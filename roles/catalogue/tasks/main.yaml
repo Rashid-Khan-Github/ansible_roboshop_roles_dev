@@ -3,6 +3,10 @@
 # common is also one role
 # I need to import a task nodejs.yaml in catalogue
 
+- name: Print app version
+  debug:
+    msg: "App Version is : {{app_version}}"
+
 - name: Installing NodeJs
   import_role:
     name: common
@@ -18,10 +22,10 @@
   args:
     chdir: /app
 
-- name: Installing mongodb-shell and loading component data
-  import_role:
-    name: common
-    tasks_from: load-mongo-schema
+# - name: Installing mongodb-shell and loading component data
+#   import_role:
+#     name: common
+#     tasks_from: load-mongo-schema
 
 - name: Copying service file and reloading service
   import_role:
