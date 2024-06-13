@@ -6,5 +6,9 @@
 - name: Reloading Daemon
   systemd:
     daemon_reload: true
-    state: restarted
+- name: "Restarting {{component}}"
+  service:
     name: "{{component}}"
+    state: restarted
+    enabled: yes
+    

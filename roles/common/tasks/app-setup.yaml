@@ -42,7 +42,7 @@
     username: "{{nexus_username}}"
     password: "{{nexus_password}}"
 
-- name: Downloading and Unzipping the Artifacts
+- name: Unzipping the Artifacts
   unarchive:
     src: "/tmp/{{component}}-{{app_version}}.zip"
     dest: /app
