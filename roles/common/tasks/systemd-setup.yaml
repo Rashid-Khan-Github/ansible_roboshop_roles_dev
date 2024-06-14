@@ -1,6 +1,11 @@
-- name: copy {{component}} service file to systemd
-  copy:
-    src: "{{component}}.service"
+# - name: copy {{component}} service file to systemd
+#   copy:
+#     src: "{{component}}.service"
+#     dest: /etc/systemd/system/{{component}}.service
+
+- name: Copy systemd template
+  template:
+    src: catalogue.service
     dest: /etc/systemd/system/{{component}}.service
 
 - name: Reloading Daemon
